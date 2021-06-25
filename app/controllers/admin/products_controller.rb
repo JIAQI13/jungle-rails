@@ -1,5 +1,9 @@
 class Admin::ProductsController < ApplicationController
-  http_basic_authenticate_with name:"Jungle",password:"book"
+  Rails.configuration.b = {
+  :name => ENV['NAME'],
+  :password => ENV['PASSWORD']
+  }
+  http_basic_authenticate_with name:Rails.configuration.b[:name], password:Rails.configuration.b[:password]
   def index
     @products = Product.order(id: :desc).all
   end
