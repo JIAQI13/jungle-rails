@@ -1,6 +1,7 @@
 require 'rails_helper'
 RSpec.describe Product, type: :model do
     describe 'Validations' do
+      
         it  'initial test with four fields' do
             @category = Category.new(name:"123")
             @product = Product.new(
